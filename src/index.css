@@ -19,11 +19,6 @@ body {
   width: 100%; 
   overflow-x: hidden;
   overflow-y: auto;
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./assets/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   background-color: #000;
   color: var(--text-main); 
   line-height: 1.5; 

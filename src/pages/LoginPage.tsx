@@ -57,15 +57,11 @@ export const LoginPage = () => {
       className="d-flex items-center justify-center" 
       style={{ 
         minHeight: '100vh',
-        backgroundImage: 'url("/background.jpg")',
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
+        backgroundColor: '#000000',
         position: 'relative',
         width: '100%'
       }}
     >
-      {/* Overlay escuro para garantir que o formulário fique legível sobre a imagem */}
       <div 
         style={{
           position: 'absolute',
@@ -90,7 +86,7 @@ export const LoginPage = () => {
         }}
       >
         <div className="text-center mb-8">
-          <img src="/logo.png" alt="Logo BIG BEEF CARNES E ESPETINHO" style={{ width: '120px', height: '120px', objectFit: 'contain', marginBottom: '1rem', borderRadius: '50%', border: '2px solid var(--primary-color)', padding: '5px', backgroundColor: 'rgba(0,0,0,0.3)' }} />
+          <img src="/logo.jpg" alt="Logo BIG BEEF CARNES E ESPETINHO" style={{ width: '120px', height: '120px', objectFit: 'contain', marginBottom: '1rem', borderRadius: '50%', border: '2px solid var(--primary-color)', padding: '5px', backgroundColor: 'rgba(0,0,0,0.3)' }} />
           <h1 style={{ color: 'var(--primary-color)', fontSize: '1.75rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Acesso Restrito</h1>
           <p style={{ color: '#ccc' }}>Área Privada - BIG BEEF CARNES E ESPETINHO</p>
         </div>

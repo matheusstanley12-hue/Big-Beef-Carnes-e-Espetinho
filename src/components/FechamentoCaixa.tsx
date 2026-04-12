@@ -264,10 +264,10 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
       {/* Banner turno */}
       <div style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.05) 100%)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '16px', padding: '1rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Clock size={20} color="#d4af37" />
+          <Clock size={20} color="var(--primary-color)" />
           <div>
             <div style={{ fontSize: '0.65rem', opacity: 0.5, fontWeight: 700 }}>TURNO EM ANDAMENTO • O.S. #{osNumber || '---'}</div>
-            <div style={{ fontWeight: 900, color: '#d4af37' }}>Início: {new Date(turnoInicio).toLocaleTimeString('pt-BR')} • Duração: {tempoTurno}</div>
+            <div style={{ fontWeight: 900, color: 'var(--primary-color)' }}>Início: {new Date(turnoInicio).toLocaleTimeString('pt-BR')} • Duração: {tempoTurno}</div>
           </div>
         </div>
         <div style={{ display: 'flex', gap: '8px' }}>
@@ -306,7 +306,7 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontSize: '0.65rem', opacity: 0.5, fontWeight: 700 }}>TOTAL GERAL DO TURNO</div>
-                <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#d4af37' }}>R$ {totalVendas.toFixed(2)}</div>
+                <div style={{ fontSize: '2.2rem', fontWeight: 900, color: 'var(--primary-color)' }}>R$ {totalVendas.toFixed(2)}</div>
               </div>
               <div style={{ textAlign: 'right' }}>
                 <div style={{ fontSize: '0.65rem', opacity: 0.5 }}>Digital (PIX + Cartões)</div>
@@ -373,8 +373,8 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
       {/* Conferência de Gaveta */}
       <div style={{ background: 'rgba(212,175,55,0.04)', border: '2px solid rgba(212,175,55,0.2)', borderRadius: '20px', padding: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.2rem' }}>
-          <DollarSign size={20} color="#d4af37" />
-          <h3 style={{ color: '#d4af37', fontSize: '0.85rem', fontWeight: 900, margin: 0 }}>CONFERÊNCIA DE GAVETA</h3>
+          <DollarSign size={20} color="var(--primary-color)" />
+          <h3 style={{ color: 'var(--primary-color)', fontSize: '0.85rem', fontWeight: 900, margin: 0 }}>CONFERÊNCIA DE GAVETA</h3>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: isGestor ? '1fr 1fr' : '1fr', gap: '1rem', marginBottom: '1.2rem' }}>
@@ -387,10 +387,10 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
                 value={fundoTroco}
                 onChange={(e) => setFundoTroco(e.target.value)}
                 onBlur={(e) => handleUpdateFundoTroco(e.target.value)}
-                style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid #d4af37', borderRadius: '10px', padding: '0.7rem 1rem', color: '#d4af37', fontSize: '1.1rem', fontWeight: 700, outline: 'none' }}
+                style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--primary-color)', borderRadius: '10px', padding: '0.7rem 1rem', color: 'var(--primary-color)', fontSize: '1.1rem', fontWeight: 700, outline: 'none' }}
               />
             ) : (
-              <div style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '0.7rem 1rem', color: '#d4af37', fontSize: '1.1rem', fontWeight: 700 }}>
+              <div style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '0.7rem 1rem', color: 'var(--primary-color)', fontSize: '1.1rem', fontWeight: 700 }}>
                 R$ {parseFloat(fundoTroco || '0').toFixed(2)}
               </div>
             )}
@@ -412,7 +412,7 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
             value={dinheiroGaveta}
             onChange={e => setDinheiroGaveta(e.target.value)}
             placeholder="Digite o valor contado..."
-            style={{ width: '100%', background: dinheiroGaveta ? 'rgba(212,175,55,0.05)' : 'rgba(255,255,255,0.03)', border: `2px solid ${dinheiroGaveta ? '#d4af37' : 'rgba(255,255,255,0.1)'}`, borderRadius: '12px', padding: '1rem', color: '#fff', fontSize: '1.8rem', fontWeight: 900, textAlign: 'center', outline: 'none', transition: '0.2s' }}
+            style={{ width: '100%', background: dinheiroGaveta ? 'rgba(212,175,55,0.05)' : 'rgba(255,255,255,0.03)', border: `2px solid ${dinheiroGaveta ? 'var(--primary-color)' : 'rgba(255,255,255,0.1)'}`, borderRadius: '12px', padding: '1rem', color: '#fff', fontSize: '1.8rem', fontWeight: 900, textAlign: 'center', outline: 'none', transition: '0.2s' }}
           />
         </div>
 
@@ -425,7 +425,7 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
               </div>
             ) : (
               <div>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', color: diferenca > 0 ? '#d4af37' : '#f43f5e', fontWeight: 900 }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', color: diferenca > 0 ? 'var(--primary-color)' : '#f43f5e', fontWeight: 900 }}>
                   <AlertTriangle size={20} />
                   {diferenca > 0 ? `SOBRA DE R$ ${diferenca.toFixed(2)}` : `QUEBRA DE R$ ${Math.abs(diferenca).toFixed(2)}`}
                 </div>
@@ -439,7 +439,7 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
       {/* Botões de ação */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', paddingBottom: '2rem' }}>
         <button onClick={handleGerarRelatorio}
-          style={{ background: 'rgba(212,175,55,0.1)', border: '2px solid rgba(212,175,55,0.4)', borderRadius: '14px', color: '#d4af37', padding: '1rem', fontWeight: 900, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          style={{ background: 'rgba(212,175,55,0.1)', border: '2px solid rgba(212,175,55,0.4)', borderRadius: '14px', color: 'var(--primary-color)', padding: '1rem', fontWeight: 900, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
           <Printer size={18} /> IMPRIMIR PARCIAL
         </button>
         <button onClick={() => { if (dinheiroGaveta === '') { alert('Conte e informe o dinheiro da gaveta antes de fechar!'); return; } setShowConfirmClose(true); }}
@@ -495,7 +495,7 @@ export const FechamentoCaixa = ({ historicoVendas, paymentTotals, onRefresh, onC
               <p style={{ opacity: 0.6, marginBottom: '1.5rem', fontSize: '0.85rem' }}>Esta ação irá gerar o Relatório Z, encerrar o turno e deslogar do sistema.</p>
 
               <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '12px', padding: '1rem', marginBottom: '1.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', textAlign: 'left' }}>
-                <div><div style={{ fontSize: '0.6rem', opacity: 0.4 }}>TOTAL VENDAS</div><div style={{ fontWeight: 900, color: '#d4af37' }}>R$ {totalVendas.toFixed(2)}</div></div>
+                <div><div style={{ fontSize: '0.6rem', opacity: 0.4 }}>TOTAL VENDAS</div><div style={{ fontWeight: 900, color: 'var(--primary-color)' }}>R$ {totalVendas.toFixed(2)}</div></div>
                 <div><div style={{ fontSize: '0.6rem', opacity: 0.4 }}>Nº VENDAS</div><div style={{ fontWeight: 900 }}>{vendasFinalizadas.length}</div></div>
                 <div><div style={{ fontSize: '0.6rem', opacity: 0.4 }}>DINHEIRO ESPERADO</div><div style={{ fontWeight: 900, color: '#a78bfa' }}>R$ {dinheiroEsperado.toFixed(2)}</div></div>
                 <div><div style={{ fontSize: '0.6rem', opacity: 0.4 }}>DINHEIRO DECLARADO</div>

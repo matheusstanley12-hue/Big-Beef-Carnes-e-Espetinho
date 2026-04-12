@@ -81,7 +81,7 @@ export const AberturaCaixa = ({ onOpen }: AberturaCaixaProps) => {
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 1.5rem',
-          color: '#d4af37'
+          color: 'var(--primary-color)'
         }}>
           <Lock size={32} />
         </div>
@@ -98,7 +98,7 @@ export const AberturaCaixa = ({ onOpen }: AberturaCaixaProps) => {
           <label style={{
             fontSize: '0.7rem',
             fontWeight: 800,
-            color: '#d4af37',
+            color: 'var(--primary-color)',
             letterSpacing: '1px',
             display: 'block',
             marginBottom: '8px'
@@ -135,7 +135,7 @@ export const AberturaCaixa = ({ onOpen }: AberturaCaixaProps) => {
                 outline: 'none',
                 transition: 'border-color 0.2s',
               }}
-              onFocus={(e) => e.target.style.borderColor = '#d4af37'}
+              onFocus={(e) => e.target.style.borderColor = 'var(--primary-color)'}
               onBlur={(e) => e.target.style.borderColor = 'rgba(212,175,55,0.3)'}
             />
           </div>
@@ -167,7 +167,7 @@ export const AberturaCaixa = ({ onOpen }: AberturaCaixaProps) => {
           onClick={handleAbrirCaixa}
           style={{
             width: '100%',
-            background: 'linear-gradient(135deg, #d4af37 0%, #b8962e 100%)',
+            background: 'linear-gradient(135deg, var(--primary-color) 0%, #b8962e 100%)',
             color: '#000',
             border: 'none',
             borderRadius: '16px',

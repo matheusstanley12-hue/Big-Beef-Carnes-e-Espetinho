@@ -19,7 +19,7 @@ import { FechamentoCaixa } from '../components/FechamentoCaixa';
 type TabType = 'dashboard' | 'usuarios' | 'produtos' | 'mesas' | 'avaliacoes' | 'comandas' | 'caixa';
 
 
-const COLORS = ['#d4af37', '#eab308', '#f59e0b', '#10b981', '#3b82f6'];
+const COLORS = ['var(--primary-color)', '#eab308', '#f59e0b', '#10b981', '#3b82f6'];
 
 const KPIItem = ({ title, value, icon, color, trend, onClick }: any) => (
   <div className="card" onClick={onClick} style={{ padding: '1.25rem', position: 'relative', cursor: onClick ? 'pointer' : 'default', transition: 'all 0.3s ease' }}>
@@ -707,7 +707,7 @@ export const Dono = () => {
         </div>
       </div>
       <div className="stat-grid mb-6">
-        <KPIItem title="Receita Bruta (TOTAL)" value={`R$ ${faturamento.toFixed(2).replace('.', ',')}`} icon={<TrendingUp color="#d4af37" />} color="#d4af37" trend="Acumulado" />
+        <KPIItem title="Receita Bruta (TOTAL)" value={`R$ ${faturamento.toFixed(2).replace('.', ',')}`} icon={<TrendingUp color="var(--primary-color)" />} color="var(--primary-color)" trend="Acumulado" />
         <KPIItem title="Faturamento Hoje" value={`R$ ${faturamentoHoje.toFixed(2).replace('.', ',')}`} icon={<Banknote color="#10b981" />} color="#10b981" trend="Diário" />
         <KPIItem title="Pedidos Ativos" value={pedidosAtivosCount.toString()} icon={<Utensils color="#3b82f6" />} color="#3b82f6" trend="Cozinha" />
         <KPIItem title="Top Garçom" value={waiterRanking[0]?.name?.split(' ')[0] || '---'} icon={<Star color="#8b5cf6" />} color="#8b5cf6" trend="Destaque" />
@@ -872,7 +872,7 @@ export const Dono = () => {
                  <XAxis dataKey="name" fontSize={10} />
                  <YAxis fontSize={10} tickFormatter={(value) => `R$${value}`} />
                  <Tooltip formatter={(value: number) => [`R$ ${value.toFixed(2)}`, 'Vendas']} />
-                 <Area type="monotone" dataKey="valor" stroke="#d4af37" fill="rgba(212,175,55,0.2)" />
+                 <Area type="monotone" dataKey="valor" stroke="var(--primary-color)" fill="rgba(212,175,55,0.2)" />
                </AreaChart>
              </ResponsiveContainer>
            </div>
@@ -1127,7 +1127,7 @@ export const Dono = () => {
       <div className="d-flex justify-between items-center mb-6">
         <h2 style={{ fontSize: '1.8rem', fontWeight: 800 }}>Controle de Mesas</h2>
         <div className="d-flex gap-2">
-          <button className="btn-outline" onClick={handleGenerateAllPDFs} style={{ width: 'auto', borderColor: '#d4af37', color: '#d4af37' }}>
+          <button className="btn-outline" onClick={handleGenerateAllPDFs} style={{ width: 'auto', borderColor: 'var(--primary-color)', color: 'var(--primary-color)' }}>
             Imprimir Todos QR Codes
           </button>
           <button className="btn-primary" onClick={handleAddMesa} style={{ width: 'auto' }}>+ Nova Mesa</button>
@@ -1158,7 +1158,7 @@ export const Dono = () => {
         <h2 className="mb-6" style={{ fontSize: '1.8rem', fontWeight: 800 }}>Avaliações</h2>
         
         <div className="grid gap-4 mb-8" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
-          <KPIItem title="⭐ Média Atendimento" value={avgAtend} icon={<UsersIcon size={20} color="#d4af37"/>} color="#d4af37" trend="Geral" />
+          <KPIItem title="⭐ Média Atendimento" value={avgAtend} icon={<UsersIcon size={20} color="var(--primary-color)"/>} color="var(--primary-color)" trend="Geral" />
           <KPIItem title="🍱 Média Comida" value={avgComida} icon={<Utensils size={20} color="#10b981"/>} color="#10b981" trend="Sabor" />
           <KPIItem title="🕯️ Média Ambiente" value={avgAmb} icon={<Star size={20} color="#3b82f6"/>} color="#3b82f6" trend="Vibe" />
         </div>
@@ -1172,7 +1172,7 @@ export const Dono = () => {
                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{new Date(av.created_at).toLocaleString()}</div>
                 </div>
                 <div className="d-flex gap-3" style={{ fontSize: '0.7rem', fontWeight: 700 }}>
-                   <span style={{ color: '#d4af37' }}>ATEND: {av.nota_atendimento}/5</span>
+                   <span style={{ color: 'var(--primary-color)' }}>ATEND: {av.nota_atendimento}/5</span>
                    <span style={{ color: '#10b981' }}>COMIDA: {av.nota_comida}/5</span>
                    <span style={{ color: '#3b82f6' }}>AMBI: {av.nota_ambiente}/5</span>
                 </div>
@@ -1372,7 +1372,7 @@ export const Dono = () => {
            <button className="btn-primary" onClick={handleImprimirRendimentos} style={{ width: 'auto' }}>📄 Baixar PDF Rendimentos</button>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
-           <KPIItem title="Faturamento Total" value={`R$ ${totalBruto.toFixed(2)}`} icon={<TrendingUp color="#d4af37" />} color="#d4af37" trend="Total" />
+           <KPIItem title="Faturamento Total" value={`R$ ${totalBruto.toFixed(2)}`} icon={<TrendingUp color="var(--primary-color)" />} color="var(--primary-color)" trend="Total" />
            <KPIItem title="Consumo Real" value={`R$ ${totalLiquido.toFixed(2)}`} icon={<Package color="#10b981" />} color="#10b981" trend="Vendas" />
 
         </div>
@@ -1563,7 +1563,7 @@ export const Dono = () => {
                         >
                             <div className="d-flex items-center gap-3 md:gap-4">
                                 <div style={{ background: 'rgba(212,175,55,0.1)', padding: isMobile ? '8px' : '10px', borderRadius: '10px' }}>
-                                    <Folder size={isMobile ? 20 : 24} color="#d4af37" fill="rgba(212,175,55,0.1)" />
+                                    <Folder size={isMobile ? 20 : 24} color="var(--primary-color)" fill="rgba(212,175,55,0.1)" />
                                 </div>
                                 <div>
                                     <div style={{ fontSize: isMobile ? '1rem' : '1.2rem', fontWeight: 900, letterSpacing: '-0.5px' }}>PASTA: {data}</div>
@@ -1591,7 +1591,7 @@ export const Dono = () => {
                                     }, 0) || 0);
                                     
                                     const diferenca = t.status === 'fechado' ? declarado - esperado : 0;
-                                    const statusColor = Math.abs(diferenca) < 0.1 ? '#10b981' : diferenca > 0 ? '#d4af37' : '#ef4444';
+                                    const statusColor = Math.abs(diferenca) < 0.1 ? '#10b981' : diferenca > 0 ? 'var(--primary-color)' : '#ef4444';
                                     
                                     const totalOS = t.pedidos?.reduce((acc: number, p: any) => acc + Number(p.total), 0) || 0;
 
@@ -1723,7 +1723,7 @@ export const Dono = () => {
     <div className="layout-container">
       <aside className="sidebar">
         <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '1.5rem 1rem' }}>
-          <img src="/logo.png" alt="Logo" style={{ width: '35px', height: '35px', borderRadius: '50%', objectFit: 'contain', border: '1px solid var(--primary-color)' }} />
+          <img src="/logo.jpg" alt="Logo" style={{ width: '35px', height: '35px', borderRadius: '50%', objectFit: 'contain', border: '1px solid var(--primary-color)' }} />
           <h2 style={{ color: 'var(--primary-color)', margin: 0, fontSize: '1.2rem', fontWeight: 800 }}>BIG BEEF CARNES E ESPETINHO</h2>
         </div>
         <nav className="sidebar-nav">
@@ -1757,7 +1757,7 @@ export const Dono = () => {
               borderRadius: '8px', color: 'rgba(255,255,255,0.45)', fontSize: '0.85rem',
               textAlign: 'left', transition: 'all 0.15s'
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(212,175,55,0.08)'; (e.currentTarget as HTMLButtonElement).style.color = '#d4af37'; }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(212,175,55,0.08)'; (e.currentTarget as HTMLButtonElement).style.color = 'var(--primary-color)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'none'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.45)'; }}
             >
               <span>{emoji}</span>

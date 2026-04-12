@@ -166,9 +166,9 @@ export const CustomerApp = () => {
         backdropFilter: 'blur(10px)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <img src="/logo.png" alt="Logo" style={{ width: '50px', height: '50px', borderRadius: '12px', objectFit: 'contain' }} />
+          <img src="/logo.jpg" alt="Logo" style={{ width: '50px', height: '50px', borderRadius: '12px', objectFit: 'contain' }} />
           <div>
-            <h2 style={{ fontSize: '1.3rem', margin: 0, color: '#d4af37', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.5px', lineHeight: 1 }}>BIG BEEF CARNES E ESPETINHO</h2>
+            <h2 style={{ fontSize: '1.3rem', margin: 0, color: 'var(--primary-color)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.5px', lineHeight: 1 }}>BIG BEEF CARNES E ESPETINHO</h2>
             <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600, marginTop: '4px', opacity: 0.8 }}>MESA {mesaNum}</div>
           </div>
         </div>

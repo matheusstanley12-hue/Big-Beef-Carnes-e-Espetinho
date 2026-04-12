@@ -147,7 +147,7 @@ export const Producao = () => {
         try {
           new Notification("🚨 NOVO PEDIDO!", {
             body: "O pedido precisa ser aceito.",
-            icon: "/logo.png",
+            icon: "/logo.jpg",
             vibrate: [500, 200, 500]
           } as any);
         } catch (err) {
@@ -174,7 +174,7 @@ export const Producao = () => {
       <OwnerViewBanner panelName="Cozinha / Bar" />
       <header className="d-flex justify-between items-center flex-col-mobile" style={{ marginBottom: '2rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem', gap: '1rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <img src="/logo.png" alt="Logo" style={{ width: '45px', height: '45px', borderRadius: '50%', objectFit: 'contain', border: '1px solid var(--primary-color)' }} />
+          <img src="/logo.jpg" alt="Logo" style={{ width: '45px', height: '45px', borderRadius: '50%', objectFit: 'contain', border: '1px solid var(--primary-color)' }} />
           <h2 className="page-title" style={{ margin: 0, border: 'none' }}>Produção (KDS)</h2>
         </div>
         <div className="d-flex gap-3 w-full-mobile">

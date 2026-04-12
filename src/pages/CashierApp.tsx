@@ -572,7 +572,7 @@ export const Caixa = ({ isEmbedded = false }: { isEmbedded?: boolean }) => {
       {!isEmbedded && (
         <aside className="sidebar" style={{ width: '100px' }}>
            <div style={{ marginBottom: '3rem' }}>
-             <img src="/logo.png" alt="Logo" style={{ width: '45px', height: '45px', borderRadius: '50%', objectFit: 'contain', border: '1px solid var(--primary-color)' }} />
+             <img src="/logo.jpg" alt="Logo" style={{ width: '45px', height: '45px', borderRadius: '50%', objectFit: 'contain', border: '1px solid var(--primary-color)' }} />
            </div>
            <nav style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2rem', opacity: isCaixaAberto ? 1 : 0.3, pointerEvents: isCaixaAberto ? 'auto' : 'none' }}>
               <button onClick={() => setActiveTab('mesas')} style={{ background: 'none', border: 'none', color: activeTab === 'mesas' ? 'var(--primary-color)' : '#444', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', cursor: 'pointer', position: 'relative' }}>
@@ -914,7 +914,7 @@ export const Caixa = ({ isEmbedded = false }: { isEmbedded?: boolean }) => {
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.4rem', marginBottom: '1rem' }}>
                            {[
                              { id: 'dinheiro', label: 'DINHEIRO', color: '#10b981' },
-                             { id: 'pix', label: 'PIX', color: '#d4af37' },
+                             { id: 'pix', label: 'PIX', color: 'var(--primary-color)' },
                              { id: 'debito', label: 'DÉBITO', color: '#fff' },
                              { id: 'credito', label: 'CRÉDITO', color: '#fff' }
                            ].map(m => (
@@ -1005,7 +1005,7 @@ export const Caixa = ({ isEmbedded = false }: { isEmbedded?: boolean }) => {
                     <div style={{ flex: 1, overflowY: 'auto', marginBottom: '1rem' }}>
                        <label style={{ fontSize: '0.65rem', opacity: 0.4, display: 'block', marginBottom: '8px' }}>PAGAMENTOS RECEBIDOS</label>
                        {pagamentos.map((p, i) => (
-                         <div key={i} className="d-flex justify-between items-center p-2 rounded-lg mb-2" style={{ background: 'rgba(255,255,255,0.05)', borderLeft: `4px solid ${p.method === 'dinheiro' ? '#10b981' : '#d4af37'}` }}>
+                         <div key={i} className="d-flex justify-between items-center p-2 rounded-lg mb-2" style={{ background: 'rgba(255,255,255,0.05)', borderLeft: `4px solid ${p.method === 'dinheiro' ? '#10b981' : 'var(--primary-color)'}` }}>
                             <div className="d-flex flex-col">
                               <span style={{ fontSize: '0.7rem', fontWeight: 800 }}>{p.method.toUpperCase()}</span>
                             </div>

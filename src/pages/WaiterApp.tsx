@@ -125,7 +125,7 @@ export const Garcom = () => {
         try {
           new Notification("🚨 ATENÇÃO!", {
             body: precisaGarcom ? "Mesa chamando atendimento!" : "Pedido pronto no balcão!",
-            icon: "/logo.png"
+            icon: "/logo.jpg"
           } as any);
         } catch (err) {
           console.error("Notifications error", err);

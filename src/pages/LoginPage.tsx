@@ -53,7 +53,11 @@ export const LoginPage = () => {
       
       navigate(from, { replace: true });
     } catch (err: any) {
-      setMessage({ type: 'error', text: err.message || 'Erro ao realizar login' });
+      const url = import.meta.env.VITE_SUPABASE_URL || 'https://llbxgjybevpcxvdbgvew.supabase.co';
+      setMessage({ 
+        type: 'error', 
+        text: `${err.message || 'Erro ao realizar login'} (Banco: ${url})` 
+      });
     } finally {
       setLoading(false);
     }

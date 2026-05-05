@@ -138,7 +138,10 @@ export const Dono = () => {
       // Buscar todos os perfis, inclusive o dono
       const { data: profiles, error: e3 } = await supabase.from('profiles').select('*').order('role', { ascending: true });
       if (e3 && e3.message.includes('permission denied')) setError("Sem permissão para ver equipe.");
-      setUsuarios(profiles || []);
+      
+      // Ocultar o usuário mestre matheus.stanley12@gmail.com da lista
+      const filteredProfiles = (profiles || []).filter(u => u.email !== 'matheus.stanley12@gmail.com' && !u.full_name?.toLowerCase().includes('matheus stanley'));
+      setUsuarios(filteredProfiles);
 
       const { data: prods } = await supabase.from('produtos').select('*').order('categoria', { ascending: true });
       setProdutos(prods || []);

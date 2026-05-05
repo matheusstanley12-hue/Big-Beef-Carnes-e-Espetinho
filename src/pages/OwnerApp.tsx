@@ -290,60 +290,55 @@ export const Dono = () => {
       img.crossOrigin = 'Anonymous';
       img.src = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(url)}&margin=0`;
       img.onload = () => {
-        // Fundo com cor leve para destacar bordas
-        doc.setFillColor(252, 252, 252); 
+        // Fundo branco puro
+        doc.setFillColor(255, 255, 255); 
         doc.rect(0, 0, 105, 148, 'F');
         
-        // Borda externa dourada (espessa)
-        doc.setDrawColor(212, 175, 55); 
-        doc.setLineWidth(1.5);
-        doc.rect(5, 5, 95, 138);
-        
-        // Borda interna dourada (fina)
-        doc.setLineWidth(0.3);
-        doc.rect(7, 7, 91, 134);
+        // Borda elegante vermelha (site primary)
+        doc.setDrawColor(230, 36, 41); 
+        doc.setLineWidth(1.2);
+        doc.roundedRect(6, 6, 93, 136, 3, 3, 'D');
         
         // Título Principal
-        doc.setTextColor(212, 175, 55); 
-        doc.setFontSize(18); 
-        doc.setFont('helvetica', 'bold');
-        doc.text('BIG BEEF CARNES E ESPETINHO', 52.5, 23, { align: 'center' });
-        
-        // Linha divisória ornamental
-        doc.setDrawColor(212, 175, 55);
-        doc.setLineWidth(0.5);
-        doc.line(30, 27, 75, 27);
-        
-        // Fundo da Mesa (Pílula dourada)
-        doc.setFillColor(212, 175, 55); 
-        doc.roundedRect(32.5, 33, 40, 11, 4, 4, 'F');
-        
-        // Texto da Mesa (Branco vazado no fundo escuro)
-        doc.setTextColor(255, 255, 255); 
+        doc.setTextColor(230, 36, 41); 
         doc.setFontSize(16); 
         doc.setFont('helvetica', 'bold');
-        doc.text(`MESA ${numero}`, 52.5, 40.5, { align: 'center' });
+        doc.text('BIG BEEF CARNES E ESPETINHO', 52.5, 22, { align: 'center' });
+        
+        // Linha minimalista
+        doc.setDrawColor(230, 36, 41);
+        doc.setLineWidth(0.4);
+        doc.line(35, 26, 70, 26);
+        
+        // Badge da Mesa
+        doc.setFillColor(230, 36, 41); 
+        doc.roundedRect(35, 32, 35, 12, 2, 2, 'F');
+        
+        // Texto da Mesa
+        doc.setTextColor(255, 255, 255); 
+        doc.setFontSize(18); 
+        doc.setFont('helvetica', 'bold');
+        doc.text(`MESA ${numero}`, 52.5, 40, { align: 'center' });
         
         // Moldura do QR Code
-        doc.setFillColor(255, 255, 255);
-        doc.setDrawColor(212, 175, 55);
+        doc.setDrawColor(230, 36, 41);
         doc.setLineWidth(0.5);
-        doc.roundedRect(24, 52, 57, 57, 4, 4, 'FD');
+        doc.roundedRect(22, 50, 61, 61, 4, 4, 'D');
         
-        // Logo/QR Code
-        doc.addImage(img, 'PNG', 27.5, 55.5, 50, 50);
+        // QR Code
+        doc.addImage(img, 'PNG', 25.5, 53.5, 54, 54);
         
-        // Textos inferiores
-        doc.setTextColor(40, 40, 40); 
+        // Instruções
+        doc.setTextColor(30, 30, 30); 
         doc.setFontSize(11); 
         doc.setFont('helvetica', 'bold');
-        doc.text('Acesse nosso cardápio digital', 52.5, 120, { align: 'center' });
+        doc.text('Acesse nosso cardápio digital', 52.5, 122, { align: 'center' });
         
-        doc.setTextColor(100, 100, 100); 
-        doc.setFontSize(10); 
+        doc.setTextColor(80, 80, 80); 
+        doc.setFontSize(9); 
         doc.setFont('helvetica', 'normal');
-        doc.text('Aponte a câmera do seu celular', 52.5, 127, { align: 'center' });
-        doc.text('para o QR Code acima.', 52.5, 132, { align: 'center' });
+        doc.text('Aponte a câmera do seu celular para', 52.5, 129, { align: 'center' });
+        doc.text('visualizar nossos produtos e fazer seu pedido.', 52.5, 134, { align: 'center' });
         
         doc.save(`BigBeef_Mesa_${numero}.pdf`);
       };
@@ -371,23 +366,21 @@ export const Dono = () => {
         
         await new Promise((resolve) => {
           img.onload = () => {
-            doc.setFillColor(252, 252, 252); doc.rect(0, 0, 105, 148, 'F');
-            doc.setDrawColor(212, 175, 55); doc.setLineWidth(1.5); doc.rect(5, 5, 95, 138);
-            doc.setLineWidth(0.3); doc.rect(7, 7, 91, 134);
-            doc.setTextColor(212, 175, 55); doc.setFontSize(18); doc.setFont('helvetica', 'bold');
-            doc.text('BIG BEEF CARNES E ESPETINHO', 52.5, 23, { align: 'center' });
-            doc.setDrawColor(212, 175, 55); doc.setLineWidth(0.5); doc.line(30, 27, 75, 27);
-            doc.setFillColor(212, 175, 55); doc.roundedRect(32.5, 33, 40, 11, 4, 4, 'F');
-            doc.setTextColor(255, 255, 255); doc.setFontSize(16); doc.setFont('helvetica', 'bold');
-            doc.text(`MESA ${m.numero}`, 52.5, 40.5, { align: 'center' });
-            doc.setFillColor(255, 255, 255); doc.setDrawColor(212, 175, 55); doc.setLineWidth(0.5);
-            doc.roundedRect(24, 52, 57, 57, 4, 4, 'FD');
-            doc.addImage(img, 'PNG', 27.5, 55.5, 50, 50);
-            doc.setTextColor(40, 40, 40); doc.setFontSize(11); doc.setFont('helvetica', 'bold');
-            doc.text('Acesse nosso cardápio digital', 52.5, 120, { align: 'center' });
-            doc.setTextColor(100, 100, 100); doc.setFontSize(10); doc.setFont('helvetica', 'normal');
-            doc.text('Aponte a câmera do seu celular', 52.5, 127, { align: 'center' });
-            doc.text('para o QR Code acima.', 52.5, 132, { align: 'center' });
+            doc.setFillColor(255, 255, 255); doc.rect(0, 0, 105, 148, 'F');
+            doc.setDrawColor(230, 36, 41); doc.setLineWidth(1.2); doc.roundedRect(6, 6, 93, 136, 3, 3, 'D');
+            doc.setTextColor(230, 36, 41); doc.setFontSize(16); doc.setFont('helvetica', 'bold');
+            doc.text('BIG BEEF CARNES E ESPETINHO', 52.5, 22, { align: 'center' });
+            doc.setDrawColor(230, 36, 41); doc.setLineWidth(0.4); doc.line(35, 26, 70, 26);
+            doc.setFillColor(230, 36, 41); doc.roundedRect(35, 32, 35, 12, 2, 2, 'F');
+            doc.setTextColor(255, 255, 255); doc.setFontSize(18); doc.setFont('helvetica', 'bold');
+            doc.text(`MESA ${m.numero}`, 52.5, 40, { align: 'center' });
+            doc.setDrawColor(230, 36, 41); doc.setLineWidth(0.5); doc.roundedRect(22, 50, 61, 61, 4, 4, 'D');
+            doc.addImage(img, 'PNG', 25.5, 53.5, 54, 54);
+            doc.setTextColor(30, 30, 30); doc.setFontSize(11); doc.setFont('helvetica', 'bold');
+            doc.text('Acesse nosso cardápio digital', 52.5, 122, { align: 'center' });
+            doc.setTextColor(80, 80, 80); doc.setFontSize(9); doc.setFont('helvetica', 'normal');
+            doc.text('Aponte a câmera do seu celular para', 52.5, 129, { align: 'center' });
+            doc.text('visualizar nossos produtos e fazer seu pedido.', 52.5, 134, { align: 'center' });
             resolve(true);
           };
           img.onerror = () => {

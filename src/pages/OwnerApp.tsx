@@ -443,6 +443,11 @@ export const Dono = () => {
   };
 
   const handleDeleteUser = async (user: any) => {
+    if (!user || !user.id) {
+      alert("Erro: Usuário não identificado para remoção.");
+      return;
+    }
+
     if (user.role === 'dono' && usuarios.filter(u => u.role === 'dono').length <= 1) {
       alert("Não é possível remover o único proprietário do sistema!");
       return;

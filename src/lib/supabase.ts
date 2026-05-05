@@ -3,22 +3,12 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://unmszmwvexpytoeqdpgv.supabase.co';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVubXN6bXd2ZXhweXRvZXFkcGd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5MzUxNTIsImV4cCI6MjA5MzUxMTE1Mn0.AiaJgnY1gvhLxv-bobm0lMTO4r_seYK19tLc1cctUmM';
 
-// Realtime reativado para suportar atualizações de estoque instantâneas.
-const clientOptions = {
-  realtime: {},
-  global: {
-    headers: { 'x-client-info': 'big-beef' },
-  },
-};
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, clientOptions);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export const tempAuthClient = createClient(supabaseUrl, supabaseAnonKey, {
   auth: { persistSession: false },
-  ...clientOptions,
 });
 
-// Access from console for maintenance/registration
 if (typeof window !== 'undefined') {
   (window as any).supabase = supabase;
 }

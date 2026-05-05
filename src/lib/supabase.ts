@@ -11,9 +11,9 @@ const clientOptions = {
   },
 };
 
-export const supabase = createClient(supabaseUrl || 'https://llbxgjybevpcxvdbgvew.supabase.co', supabaseAnonKey || 'sb_publishable_YfDyphgJwowet_GgLjaPxA_ohsV-ZD-', clientOptions);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, clientOptions);
 
-export const tempAuthClient = createClient(supabaseUrl || 'https://llbxgjybevpcxvdbgvew.supabase.co', supabaseAnonKey || 'sb_publishable_YfDyphgJwowet_GgLjaPxA_ohsV-ZD-', {
+export const tempAuthClient = createClient(supabaseUrl, supabaseAnonKey, {
   auth: { persistSession: false },
   ...clientOptions,
 });

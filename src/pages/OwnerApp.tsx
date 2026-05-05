@@ -910,9 +910,9 @@ export const Dono = () => {
       {showNewUser && (
         <div className="card mb-6">
           <form onSubmit={handleCreateUser} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-            <input value={newUserName} onChange={e => setNewUserName(e.target.value)} placeholder="Nome" required className="input-field" />
-            <input type="email" value={newUserEmail} onChange={e => setNewUserEmail(e.target.value)} placeholder="E-mail" required className="input-field" />
-            <input type="password" value={newUserPassword} onChange={e => setNewUserPassword(e.target.value)} placeholder="Senha" required className="input-field" />
+            <input value={newUserName} onChange={e => setNewUserName(e.target.value)} placeholder="Nome" required className="input-field" autoComplete="off" />
+            <input type="email" value={newUserEmail} onChange={e => setNewUserEmail(e.target.value)} placeholder="E-mail" required className="input-field" autoComplete="off" />
+            <input type="password" value={newUserPassword} onChange={e => setNewUserPassword(e.target.value)} placeholder="Senha" required className="input-field" autoComplete="new-password" />
             <select value={newUserRole} onChange={e => setNewUserRole(e.target.value)} className="input-field" style={{ background: '#111', color: '#fff' }}>
               <option value="garcom">Garçom</option>
               <option value="caixa">Caixa</option>

@@ -37,12 +37,19 @@ export const LoginPage = () => {
     setMessage({ type: '', text: '' });
 
     try {
-      const { error: authError } = await supabase.auth.signInWithPassword({
+      // Adicionando um timeout manual para evitar que a tela congele caso o banco de dados não responda
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Falha de conexão com o servidor. O banco de dados do Big Beef não está configurado corretamente ou não existe.')), 8000)
+      );
+
+      const authPromise = supabase.auth.signInWithPassword({
         email,
         password,
       });
 
-      if (authError) throw authError;
+      const result: any = await Promise.race([authPromise, timeoutPromise]);
+      
+      if (result?.error) throw result.error;
       
       navigate(from, { replace: true });
     } catch (err: any) {

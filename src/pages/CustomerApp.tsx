@@ -187,7 +187,7 @@ export const CustomerApp = () => {
           borderTop: '1px solid var(--border-color)', opacity: 0.7 
         }}>
           <p style={{ color: 'var(--primary-color)', fontStyle: 'italic', fontSize: '0.8rem', lineHeight: 1.6, textAlign: 'center' }}>
-            BIG BEEF CARNES E ESPETINHO<br/>Aqui a resenha é de verdade
+            BIG BEEF CARNES E ESPETINHO<br/>O melhor churrasco da região
           </p>
 
         </footer>
